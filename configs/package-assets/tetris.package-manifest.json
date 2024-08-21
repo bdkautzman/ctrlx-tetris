@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.boschrexroth.com/ctrlx-automation/ctrlx-core/apps/package-manifest/package-manifest.v1.3.schema.json",
+  "version": "1.0.0",
+  "id": "tetris",
+  "menus": {
+    "sidebar": [
+      {
+        "id": "tetris",
+        "title": "Tetris",
+        "icon": "bosch-ic-worldwideweb",
+        "link": "http://${hostname}:8080/"
+      }
+    ]
+  }
+}

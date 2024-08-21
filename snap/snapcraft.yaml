@@ -1,0 +1,66 @@
+name: tetris
+title: Tetris
+icon: tetris-icon.svg
+version: 1.0.0
+summary: Tetris Web App
+description: |
+  Snap version of 'tengen-tetris' by aitorperezzz (https://github.com/aitorperezzz/tengen-tetris)
+base: core22
+confinement: strict
+grade: stable
+
+apps:
+  application:
+    command: bin/application.py
+    plugs:
+      - network-bind
+      - active-solution
+    daemon: simple
+    restart-condition: always
+    passthrough:
+      restart-delay: 10s
+
+parts:
+  application:
+    plugin: python
+    source: .
+    requirements: [requirements.txt]
+
+  configs:
+    plugin: dump
+    source: ./configs
+    organize:
+      'package-assets/*': package-assets/${SNAPCRAFT_PROJECT_NAME}/
+  
+  templates:
+    plugin: dump
+    source: ./templates
+    organize:
+      '*': bin/templates/
+
+  static:
+    plugin: dump
+    source: ./static
+    organize:
+      '*': bin/static/
+
+slots:
+  package-assets:
+    interface: content
+    content: package-assets
+    source:
+      read:
+        - $SNAP/package-assets/${SNAPCRAFT_PROJECT_NAME}
+        
+  package-run:
+    interface: content
+    content: package-run
+    source:
+      write:
+        - $SNAP_DATA/package-run/${SNAPCRAFT_PROJECT_NAME}
+
+plugs:
+  active-solution:
+    interface: content
+    content: solutions
+    target: $SNAP_COMMON/solutions
