@@ -1,3 +1,6 @@
-flask
-flask_socketio
-gevent-websocket
+flask==3.0.3
+flask_socketio==5.3.6
+gevent-websocket==0.10.1
+greenlet==3.0.3
+python-socketio==5.11.3
+werkzeug==3.0.3
