@@ -215,7 +215,7 @@ class Client {
 		else if (code == LEFT_ARROW || key == 'a') {
 			return KEY_LEFT;
 		}
-		else if (code == ENTER) {
+		else if (code == ENTER || key == 'Enter') {
 			return KEY_ENTER;
 		}
 		else {

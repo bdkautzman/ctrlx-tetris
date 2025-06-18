@@ -1,7 +1,7 @@
 name: tetris
 title: Tetris
 icon: tetris-icon.svg
-version: 1.0.0
+version: 1.0.1
 summary: Tetris Web App
 description: |
   Snap version of 'tengen-tetris' by aitorperezzz (https://github.com/aitorperezzz/tengen-tetris)
